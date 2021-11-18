@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:FinalProject_Template.ViewModels"
+             x:Class="FinalProject_Template.Views.HomePage">
+    <ContentPage.BindingContext>
+        <viewmodels:HomePageViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to the Home Page"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="View Table"
+                        VerticalOptions="End"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding ViewTable}"/>
+                <Button Text="View Stats"
+                        VerticalOptions="End"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding ViewStats}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
