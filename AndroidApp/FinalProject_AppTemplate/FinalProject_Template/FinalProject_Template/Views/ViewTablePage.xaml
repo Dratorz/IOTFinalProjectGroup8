@@ -9,6 +9,39 @@
                 VerticalOptions="StartAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
+            <CollectionView ItemsSource="{Binding Items}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedMovie}"
+                            SelectionChangedCommand="{Binding MovieSelectionCommand}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10,20,10,0"
+                           Padding="0"
+                           CornerRadius="50"
+                           HorizontalOptions="Center"
+                           IsClippedToBounds="True">
+
+                            <Label VerticalOptions="End"
+                                BackgroundColor="DarkOrange"
+                                TextColor="White"
+                                FontSize="30"
+                                Opacity="0.85"
+                                VerticalTextAlignment="Center"
+                                Padding="15, 0, 15, 0"
+                                HeightRequest="70"
+                                LineBreakMode="TailTruncation"
+                                Text="{Binding Id}"/>
+
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <StackLayout HorizontalOptions="Center">
+                        <Label Text="Table is empty"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+            </CollectionView>
+
             <Button Text="Go Back"
                     VerticalOptions="End"
                     HorizontalOptions="Center"

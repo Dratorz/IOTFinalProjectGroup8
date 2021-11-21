@@ -1,4 +1,5 @@
-﻿using FinalProject_Template.ViewModels;
+﻿using FinalProject_Template.Services.Network;
+using FinalProject_Template.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace FinalProject_Template.Views
         public ViewTablePage()
         {
             InitializeComponent();
-            BindingContext = new ViewTableViewModel();
+            BindingContext = new ViewTableViewModel(new NetworkService());
         }
     }
 }
