@@ -1,0 +1,1 @@
+*/5 * * * * /usr/bin/python /home/pi/Documents/IOTFinalProject/DHT11Test.py
