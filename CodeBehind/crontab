@@ -1,1 +1,1 @@
-*/5 * * * * /usr/bin/python /home/pi/Documents/IOTFinalProject/DHT11Test.py
+*/5 * * * * /usr/bin/python /home/pi/Documents/IOT2FinalProjectOfficial/IOTFinalProjectGroup8_Pi/CodeBehindgetReadings.py
