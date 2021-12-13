@@ -31,11 +31,12 @@ insert into unit(unit_id, unit, unit_name)
 values(4, '%','Relative Humidity');
 
 create table reading(
-	reading_id int not null primary key, 
+	reading_id int not null primary key auto_increment, 
 	rasp_id varchar(100), 
 	value float, 
 	type_id int, 
 	unit_id int, 
+	online binary,
 	foreign key (type_id) references type(type_id),
 	foreign key (unit_id) references unit(unit_id)
 );
