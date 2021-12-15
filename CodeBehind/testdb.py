@@ -12,7 +12,7 @@ now = datetime.now()
 
 print(now.strftime('%Y-%m-%d %H:%M:%S'))
 
-my_reading = Reading("tes", now, 10, 1, 1)
+my_reading = Reading("goop", now, 10, 1, 1)
 
 insert_response = readings.insert_reading(my_reading)
 
@@ -23,6 +23,14 @@ print()
 #insert_response = readings.insert_reading(my_reading)
 
 #print(insert_response)
+my_readings = readings.select_all_readings()
+
+print(my_readings)
+
+
+response = readings.update_reading(True)
+print(response)
+
 my_readings = readings.select_all_readings()
 
 print(my_readings)

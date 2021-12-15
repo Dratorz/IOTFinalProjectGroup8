@@ -54,8 +54,42 @@ class DB(object):
         return return_set
     
     
+    def execute_update_query(self, schema_name, table_name, params=None):
+        return_set = []
+        cursor = self.connection.cursor(dictionary=True)
+        
+        if params is None:
+            return return_set
+        else:
+            columns = []
+            newParams = dict()
+            for(key, value) in params.items():
+                if key != 'where':
+                    newParams[key] = value
+            
+            for (key, value) in newParams.items():
+                columns.append(key + "=" + str(value))
+            
+            sql = "UPDATE " + schema_name + "." + table_name + " SET " + ", ".join([c for c in columns])
+            sql += " WHERE " + params['where']
+            print(sql)
+            
+            cursor.execute(sql)
+            self.connection.commit()
+            print(cursor.rowcount, " record(s) updated!")
+            
+        for i in cursor:
+            return_set.append(i)
+        
+        cursor.close()
+        return return_set
+    
+    
     def close(self):
         self.connection.close()
+        
+    
+    
     
     
             

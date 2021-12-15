@@ -43,6 +43,8 @@ else:
                         timeout=3)
         if response.status_code == 201 or response.status_code == 200:
             check_ws = False
+            readings.update_reading(True)
+            
         else:
             check_current_retries += 1
             print("Failed to reach web service, retrying {}...".format(check_current_retries))

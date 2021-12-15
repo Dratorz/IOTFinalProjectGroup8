@@ -20,3 +20,6 @@ class DBReading:
                                                                          'type_id': reading.type_id,
                                                                          'unit_id': reading.unit_id,
                                                                          'online': reading.online})
+    def update_reading(self, online: bool):
+        return self.dta.execute_update_query("iotdb", "reading", params={'online': online,
+                                                                         'where': 'online=0'})

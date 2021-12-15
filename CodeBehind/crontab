@@ -1,1 +1,2 @@
-*/5 * * * * /usr/bin/python /home/pi/Documents/IOT2FinalProjectOfficial/IOTFinalProjectGroup8_Pi/CodeBehindgetReadings.py
+*/5 * * * * /usr/bin/python /home/pi/Documents/IOT2FinalProjectOfficial/IOTFinalProjectGroup8_Pi/CodeBehind/getReadings.py
+*/6 * * * * /usr/bin/python /home/pi/Documents/IOT2FinalProjectOfficial/IOTFinalProjectGroup8_Pi/CodeBehind/sendReadings.py
