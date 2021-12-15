@@ -15,6 +15,7 @@ class DBReading:
     
     def insert_reading(self, reading: Reading):
         return self.dta.execute_insert_query("iotdb", "reading", params={'rasp_id': reading.rasp_id,
+                                                                         'reading_time': reading.reading_time,
                                                                          'value': reading.value,
                                                                          'type_id': reading.type_id,
                                                                          'unit_id': reading.unit_id,

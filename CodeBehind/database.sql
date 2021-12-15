@@ -33,6 +33,7 @@ values(4, '%','Relative Humidity');
 create table reading(
 	reading_id int not null primary key auto_increment, 
 	rasp_id varchar(100), 
+	reading_time datetime,
 	value float, 
 	type_id int, 
 	unit_id int, 
