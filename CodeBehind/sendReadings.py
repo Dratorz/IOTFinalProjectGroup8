@@ -10,7 +10,6 @@ online = False
 check_max_retries = 15
 check_current_retries = 0
 
-print("Will try to send offline readings to web service.")
 
 while check_network:
     print("Checking if the PI is online")
@@ -27,11 +26,10 @@ while check_network:
         if check_current_retries == check_max_retries:
             print("Failed to reach network after {} retries.".format(post_current_retries))
             check_network = False
-print(online)
+
 if online == False:
     sys.exit()
-if online == True:
-    
+else:    
     readings = DBReading()
     
     offline_readings = readings.select_readings(False)
