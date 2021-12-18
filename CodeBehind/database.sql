@@ -34,7 +34,7 @@ create table reading(
 	reading_id int not null primary key auto_increment, 
 	rasp_id varchar(100), 
 	reading_time varchar(50),
-	value float, 
+	sensor_value float, 
 	type_id int, 
 	unit_id int, 
 	online binary,

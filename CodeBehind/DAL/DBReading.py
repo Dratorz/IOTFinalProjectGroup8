@@ -9,17 +9,21 @@ class DBReading:
     
     def select_all_readings(self):
         return self.dta.execute_select_query("reading")
+        
     
     def select_readings(self, online: bool):
         return self.dta.execute_select_query("reading", params={'online': online})
+        
     
     def insert_reading(self, reading: Reading):
         return self.dta.execute_insert_query("iotdb", "reading", params={'rasp_id': reading.rasp_id,
                                                                          'reading_time': reading.reading_time,
-                                                                         'value': reading.value,
+                                                                         'sensor_value': reading.sensor_value,
                                                                          'type_id': reading.type_id,
                                                                          'unit_id': reading.unit_id,
                                                                          'online': reading.online})
     def update_reading(self, online: bool):
+        opposite = str(not online)
+        where_clause = "online=" + opposite
         return self.dta.execute_update_query("iotdb", "reading", params={'online': online,
-                                                                         'where': 'online=0'})
+                                                                         'where': where_clause})

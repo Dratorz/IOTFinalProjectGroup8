@@ -71,7 +71,7 @@ while not done:
         readings.insert_reading(hReading)
         done=True
     except Exception as e:
-        console.log(e)
+        print(e)
         db_current_retries += 1
         if db_current_retries == db_max_retries:
             done = True

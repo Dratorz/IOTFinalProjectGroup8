@@ -28,9 +28,11 @@ my_readings = readings.select_all_readings()
 print(my_readings)
 
 
-response = readings.update_reading(True)
-print(response)
+# response = readings.update_reading(True)
+# print(response)
 
 my_readings = readings.select_all_readings()
+filter_out = ['reading_id', 'online']
+my_readings = map(lambda r: [value for key, value in r.items() if key not in no_bueno], my_readings)
 
-print(my_readings)
+print(list(my_readings))

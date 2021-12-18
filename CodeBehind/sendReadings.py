@@ -29,16 +29,21 @@ while check_network:
 
 if online == False:
     sys.exit()
-else:    
+else:
     readings = DBReading()
     
     offline_readings = readings.select_readings(False)
+    filter_out = ['reading_id', 'online']
+    offline_readings = map(lambda r: {k: r[k] for k in set(list(r.keys())) - set(filter_out)}, offline_readings)
+    #offline_readings = map(lambda r: [value for key, value in r.items() if key not in filter_out], offline_readings)
+    offline_readings = list(offline_readings)
+    
     check_ws = True
     check_current_retries = 0
     
     while check_ws:
         
-        response = requests.post('http://chunk3r.pythonanywhere.com/create/',
+        response = requests.post('http://chunk3r.pythonanywhere.com/api/home/create/',
                         json=offline_readings,
                         timeout=3)
         if response.status_code == 201 or response.status_code == 200:
